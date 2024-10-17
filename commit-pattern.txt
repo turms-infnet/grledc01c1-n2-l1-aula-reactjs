@@ -1,0 +1,10 @@
+feat: Criar formulário de autenticação na tela de login
+
+Mais:
+ - Adicionado input de login e senha;
+ - Adicionado botão de entar;
+ - Adicionar link para esqueci minha senha;
+ - Modal de esqueci minha senha;
+ - Link para criar conta.
+
+Resolves: #PROJ-3340 #PROJ-4567
