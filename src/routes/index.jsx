@@ -10,7 +10,7 @@ import { handleVerificationProtected, isAuthenticated } from "../services/authen
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/">
-            <Route element={Protected}>
+            <Route element={<Protected/>}>
                 <Route index element={<Home />} loader={() => handleVerificationProtected()}/>
                 <Route path="settings" element={<Settings />} loader={() => handleVerificationProtected()}/>
             </Route>
