@@ -1,9 +1,10 @@
 import { NativeBaseProvider } from "native-base";
+import Routes from "./routes";
 
 
 const App = () => {
   return  <NativeBaseProvider>
-            <button>Olá</button>
+            <Routes/>
           </NativeBaseProvider>;
 }
 
