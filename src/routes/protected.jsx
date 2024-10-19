@@ -1,9 +1,8 @@
 import { Navigate, Outlet } from "react-router-dom";
 
 const Protected = () => {
-    const token = localStorage.getItem("token");
-
-    return token ? <Outlet /> : <Navigate to="/signin" />;
+    const session = localStorage.getItem("session");
+    return session ? <Outlet /> : <Navigate to="/signin" />;
 }
 
 export default Protected;

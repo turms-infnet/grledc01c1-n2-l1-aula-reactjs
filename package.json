@@ -2,30 +2,39 @@
   "name": "grledc01c1-n2-l1-aula-reactjs",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.4",
+    "@mui/material": "^6.1.4",
+    "@mui/styled-engine-sc": "^6.1.4",
+    "@mui/x-date-pickers": "^7.21.0",
+    "@supabase/supabase-js": "^2.45.6",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/react-router-dom": "^5.3.3",
+    "dayjs": "^1.11.13",
     "dexie": "^4.0.8",
     "dexie-react-hooks": "^1.1.7",
-    "native-base": "^3.4.28",
+    "i18next": "^23.16.2",
+    "i18next-browser-languagedetector": "^8.0.0",
+    "i18next-http-backend": "^2.6.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-native": "^0.75.4",
-    "react-native-safe-area-context": "3.3.2",
-    "react-native-svg": "12.1.1",
-    "react-native-web": "0.17.1",
+    "react-i18next": "^15.0.3",
+    "react-input-mask": "^2.0.4",
     "react-router-dom": "^6.27.0",
-    "react-scripts": "5.0.1",
     "styled-components": "^6.1.13",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "start-open": "vite --host",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test": "vite test"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +60,15 @@
     "@types/node": "^22.7.6",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
-    "typescript": "^5.6.3"
+    "@types/react-input-mask": "^3.0.5",
+    "@vitejs/plugin-react": "^4.3.3",
+    "@vitejs/plugin-react-refresh": "^1.3.6",
+    "@vitejs/plugin-react-swc": "^3.7.1",
+    "sass": "^1.80.3",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.9",
+    "vite-plugin-live-reload": "^3.0.3",
+    "vite-plugin-svgr": "^4.2.0",
+    "vite-tsconfig-paths": "^5.0.1"
   }
 }

@@ -1,0 +1,16 @@
+// vite.config.ts
+import { defineConfig } from "file:///C:/Users/tiago/WebstormProjects/grledc01c1-n2-l1-aula-reactjs/node_modules/vite/dist/node/index.js";
+import react from "file:///C:/Users/tiago/WebstormProjects/grledc01c1-n2-l1-aula-reactjs/node_modules/@vitejs/plugin-react-swc/index.mjs";
+import liveReload from "file:///C:/Users/tiago/WebstormProjects/grledc01c1-n2-l1-aula-reactjs/node_modules/vite-plugin-live-reload/dist/index.js";
+var vite_config_default = defineConfig({
+  base: "/",
+  plugins: [
+    react(),
+    liveReload("src/**/*.{js,jsx,ts,tsx}")
+    // Passe o caminho diretamente como argumento
+  ]
+});
+export {
+  vite_config_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidml0ZS5jb25maWcudHMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbImNvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9kaXJuYW1lID0gXCJDOlxcXFxVc2Vyc1xcXFx0aWFnb1xcXFxXZWJzdG9ybVByb2plY3RzXFxcXGdybGVkYzAxYzEtbjItbDEtYXVsYS1yZWFjdGpzXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ZpbGVuYW1lID0gXCJDOlxcXFxVc2Vyc1xcXFx0aWFnb1xcXFxXZWJzdG9ybVByb2plY3RzXFxcXGdybGVkYzAxYzEtbjItbDEtYXVsYS1yZWFjdGpzXFxcXHZpdGUuY29uZmlnLnRzXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ltcG9ydF9tZXRhX3VybCA9IFwiZmlsZTovLy9DOi9Vc2Vycy90aWFnby9XZWJzdG9ybVByb2plY3RzL2dybGVkYzAxYzEtbjItbDEtYXVsYS1yZWFjdGpzL3ZpdGUuY29uZmlnLnRzXCI7aW1wb3J0IHsgZGVmaW5lQ29uZmlnIH0gZnJvbSAndml0ZSdcclxuaW1wb3J0IHJlYWN0IGZyb20gJ0B2aXRlanMvcGx1Z2luLXJlYWN0LXN3YydcclxuaW1wb3J0IGxpdmVSZWxvYWQgZnJvbSAndml0ZS1wbHVnaW4tbGl2ZS1yZWxvYWQnO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgZGVmaW5lQ29uZmlnKHtcclxuICBiYXNlOiAnLycsXHJcbiAgcGx1Z2luczogW1xyXG4gICAgcmVhY3QoKSxcclxuICAgIGxpdmVSZWxvYWQoJ3NyYy8qKi8qLntqcyxqc3gsdHMsdHN4fScpLCAvLyBQYXNzZSBvIGNhbWluaG8gZGlyZXRhbWVudGUgY29tbyBhcmd1bWVudG9cclxuICBdXHJcbn0pIl0sCiAgIm1hcHBpbmdzIjogIjtBQUFtWCxTQUFTLG9CQUFvQjtBQUNoWixPQUFPLFdBQVc7QUFDbEIsT0FBTyxnQkFBZ0I7QUFFdkIsSUFBTyxzQkFBUSxhQUFhO0FBQUEsRUFDMUIsTUFBTTtBQUFBLEVBQ04sU0FBUztBQUFBLElBQ1AsTUFBTTtBQUFBLElBQ04sV0FBVywwQkFBMEI7QUFBQTtBQUFBLEVBQ3ZDO0FBQ0YsQ0FBQzsiLAogICJuYW1lcyI6IFtdCn0K
