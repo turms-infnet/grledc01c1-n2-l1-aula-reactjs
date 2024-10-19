@@ -1,5 +1,10 @@
-const Card = () => {
-    return "Card"
+interface CardProps {
+  children?: React.ReactNode;
+  props: any;
 }
 
-export default Card;
+const CardComponent: React.FC<CardProps> = ({ children, ...props }) => {
+  return "Card";
+}
+
+export default CardComponent;

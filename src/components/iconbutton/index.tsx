@@ -1,5 +1,11 @@
-const IconButton = () => {
-    return "IconButton"
+import { IconButton , IIconButtonProps } from "native-base";
+
+interface IconButtonProps extends IIconButtonProps {
+  props: any;
 }
 
-export default IconButton;
+const IconButtonComponent: React.FC<IconButtonProps> = (props) => {
+  return <IconButton {...props}/>;
+}
+
+export default IconButtonComponent;

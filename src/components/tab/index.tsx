@@ -1,5 +1,10 @@
-const Tab = () => {
-    return "Tab"
+interface TabProps {
+  children?: React.ReactNode;
+  props: any;
 }
 
-export default Tab;
+const TabComponent: React.FC<TabProps> = ({ children, ...props }) => {
+  return "Tab";
+}
+
+export default TabComponent;

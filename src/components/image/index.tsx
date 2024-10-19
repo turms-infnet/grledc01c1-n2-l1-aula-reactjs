@@ -1,5 +1,11 @@
-const Image = () => {
-    return "Image"
+import { Image , IImageProps } from "native-base";
+
+interface ImagePropsProps extends IImageProps {
+  props: any;
 }
 
-export default Image;
+const ImageComponent: React.FC<ImagePropsProps> = (props) => {
+  return <Image {...props} />;
+}
+
+export default ImageComponent;

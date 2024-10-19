@@ -1,5 +1,11 @@
-const Switch = () => {
-    return "Switch"
+import { Switch , ISwitchProps } from "native-base";
+
+interface SwitchProps extends ISwitchProps {
+  props: any;
 }
 
-export default Switch;
+const SwitchComponent: React.FC<SwitchProps> = (props) => {
+  return <Switch {...props} />;
+}
+
+export default SwitchComponent;

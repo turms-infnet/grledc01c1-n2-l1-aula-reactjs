@@ -1,5 +1,12 @@
-const Button = () => {
-    return "Button"
+import { Button, IButtonProps } from "native-base";
+
+interface ButtonProps extends IButtonProps {
+  children?: React.ReactNode;
+  props: any;
 }
 
-export default Button;
+const ButtonComponent: React.FC<ButtonProps> = ({ children, ...props }) => {
+  return <Button {...props}>{children}</Button>;
+}
+
+export default ButtonComponent;

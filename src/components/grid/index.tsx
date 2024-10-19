@@ -1,5 +1,10 @@
-const Grid = () => {
-    return "Grid"
+interface GridProps {
+  children?: React.ReactNode;
+  props: any;
 }
 
-export default Grid;
+const GridComponent: React.FC<GridProps> = ({ children, ...props }) => {
+  return "Grid";
+}
+
+export default GridComponent;
