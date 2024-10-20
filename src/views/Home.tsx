@@ -1,5 +1,9 @@
+import { useAppContext } from "../App";
+
 const Home = () => {
-    return 'Home'
+    const { t } = useAppContext();
+
+    return <h1>{t('welcome')}</h1>
 };
 
 export default Home;

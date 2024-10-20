@@ -1,9 +1,12 @@
 import React, { createContext, useContext, ReactNode } from 'react';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import Routes from "./routes";
+import { useTranslation } from 'react-i18next';
 
 interface AppContextInterface {
   supabase: SupabaseClient;
+  changeLanguage: (lng: string) => void,
+  t: (key: string) => string
 }
 
 const AppContext = createContext<AppContextInterface | null>(null);
@@ -15,9 +18,16 @@ interface AppProviderProps {
 }
 
 const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+
   const sharedState: AppContextInterface = {
     supabase,
-    // Adicione mais inicializações aqui
+    changeLanguage,
+    t
   };
 
   return (
