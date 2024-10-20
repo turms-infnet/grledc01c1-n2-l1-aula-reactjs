@@ -1,11 +1,9 @@
-import { Input , IInputProps } from "native-base";
+import { TextField } from '@mui/material';
 
-interface InputProps extends IInputProps {
-  props: any;
+interface ITextFieldProps {}
+
+const TextFieldComponent: React.FC<ITextFieldProps> = (props) => {
+  return <TextField {...props} />;
 }
 
-const InputComponent: React.FC<InputProps> = (props) => {
-  return <Input {...props} />;
-}
-
-export default InputComponent;
+export default TextFieldComponent;

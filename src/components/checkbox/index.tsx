@@ -1,12 +1,11 @@
-import { Checkbox, ICheckboxProps } from "native-base";
+import { Checkbox, CheckboxProps } from '@mui/material';
 
-interface CheckboxProps extends ICheckboxProps {
-  children?: React.ReactNode;
+interface ICheckboxProps extends CheckboxProps {
   props: any;
 }
 
-const CheckboxComponent: React.FC<CheckboxProps> = ({ children, ...props }) => {
-  return <Checkbox {...props}>{children}</Checkbox>;
+const CheckboxComponent: React.FC<ICheckboxProps> = (props) => {
+  return <Checkbox {...props} />;
 }
 
 export default CheckboxComponent;

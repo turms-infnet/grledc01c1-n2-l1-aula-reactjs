@@ -1,12 +1,12 @@
-import { Text , ITextProps } from "native-base";
+import { Typography , TypographyProps } from '@mui/material';
 
-interface TextProps extends ITextProps {
+interface ITextProps extends TypographyProps {
   children?: React.ReactNode;
   props: any;
 }
 
-const TextComponent: React.FC<TextProps> = ({ children, ...props }) => {
-  return <Text {...props}>{children}</Text>;
+const TextComponent: React.FC<ITextProps> = ({ children, ...props }) => {
+  return <Typography {...props}>{children}</Typography>;
 }
 
 export default TextComponent;

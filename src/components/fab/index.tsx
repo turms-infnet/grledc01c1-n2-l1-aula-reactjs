@@ -1,10 +1,12 @@
-import { Fab, IFabProps } from 'native-base';
-interface FabProps extends IFabProps {
+import { Fab, FabProps } from '@mui/material';
+
+interface IFabProps extends FabProps {
+  children?: React.ReactNode;
   props: any;
 }
 
-const FabComponent: React.FC<FabProps> = (props) => {
-  return <Fab {...props} />;
+const FabComponent: React.FC<IFabProps> = ({children, ...props}) => {
+  return <Fab {...props}>{children}</Fab>;
 }
 
 export default FabComponent;

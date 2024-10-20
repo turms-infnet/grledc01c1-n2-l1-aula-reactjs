@@ -1,10 +1,6 @@
-interface CardProps {
-  children?: React.ReactNode;
-  props: any;
-}
-
-const CardComponent: React.FC<CardProps> = ({ children, ...props }) => {
-  return "Card";
-}
-
-export default CardComponent;
+// index.ts
+export { CardComponent as Card } from './cardComponents';
+export { CardActionsComponent as CardActions } from './cardComponents';
+export { CardContentComponent as CardContent } from './cardComponents';
+export { CardHeaderComponent as CardHeader } from './cardComponents';
+export { CardMediaComponent as CardMedia } from './cardComponents';

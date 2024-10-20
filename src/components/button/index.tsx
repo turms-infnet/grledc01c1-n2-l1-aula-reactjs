@@ -1,11 +1,11 @@
-import { Button, IButtonProps } from "native-base";
+import { Button, ButtonProps } from '@mui/material';
 
-interface ButtonProps extends IButtonProps {
+interface IButtonProps extends ButtonProps {
   children?: React.ReactNode;
   props: any;
 }
 
-const ButtonComponent: React.FC<ButtonProps> = ({ children, ...props }) => {
+const ButtonComponent: React.FC<IButtonProps> = ({ children, ...props }) => {
   return <Button {...props}>{children}</Button>;
 }
 

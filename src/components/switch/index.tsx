@@ -1,10 +1,8 @@
-import { Switch , ISwitchProps } from "native-base";
+import { Switch } from '@mui/material';
 
-interface SwitchProps extends ISwitchProps {
-  props: any;
-}
+interface ISwitchProps {}
 
-const SwitchComponent: React.FC<SwitchProps> = (props) => {
+const SwitchComponent: React.FC<ISwitchProps> = (props) => {
   return <Switch {...props} />;
 }
 

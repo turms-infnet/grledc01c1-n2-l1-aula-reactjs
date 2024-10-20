@@ -1,15 +1,11 @@
 export { default as Avatar } from './avatar';
 export { default as Button } from './button';
-export { default as Card } from './card';
+export { Card, CardActions, CardContent, CardHeader, CardMedia } from './card';
 export { default as Checkbox } from './checkbox';
 export { default as Fab } from './fab';
 export { default as Grid } from './grid';
-export { default as Heading } from './heading';
 export { default as IconButton } from './iconbutton';
-export { default as Image } from './image';
 export { default as Input } from './input';
-export { default as Select } from './select';
 export { default as Switch } from './switch';
 export { default as Tab } from './tab';
 export { default as Text } from './text';
-export { default as TextArea } from './textarea';

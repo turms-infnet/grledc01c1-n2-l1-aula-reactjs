@@ -1,10 +1,10 @@
-import { IconButton , IIconButtonProps } from "native-base";
+import { IconButton , IconButtonProps } from '@mui/material';
 
-interface IconButtonProps extends IIconButtonProps {
+interface IIconButtonProps extends IconButtonProps {
   props: any;
 }
 
-const IconButtonComponent: React.FC<IconButtonProps> = (props) => {
+const IconButtonComponent: React.FC<IIconButtonProps> = (props) => {
   return <IconButton {...props}/>;
 }
 

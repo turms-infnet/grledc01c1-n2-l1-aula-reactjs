@@ -1,12 +1,11 @@
-import { Avatar, IAvatarProps } from "native-base";
+import { Avatar, AvatarProps } from '@mui/material';
 
-interface AvatarProps extends IAvatarProps {
-  children?: React.ReactNode;
+interface IAvatarProps extends AvatarProps {
   props: any;
 }
 
-const AvatarComponent: React.FC<AvatarProps> = ({ children, ...props }) => {
-  return <Avatar {...props}>{children}</Avatar>;
+const AvatarComponent: React.FC<IAvatarProps> = (props) => {
+  return <Avatar {...props} />;
 }
 
 export default AvatarComponent;
