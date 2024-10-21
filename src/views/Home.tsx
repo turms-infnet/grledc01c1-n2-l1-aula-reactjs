@@ -1,4 +1,4 @@
-import { useAppContext } from "../App";
+import { useAppContext } from "../Context";
 
 const Home = () => {
     const { t } = useAppContext();

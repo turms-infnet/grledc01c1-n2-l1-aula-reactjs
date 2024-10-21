@@ -1,7 +1,17 @@
 {
   "welcome": "Seja Bem-vindo",
   "login": "Entrar",
+  "register": "Criar conta",
   "sign-in": "Logar",
+  "sign-up": "Registrar-se",
   "email": "E-mail",
-  "password": "Senha"
+  "password": "Senha",
+  "confirm-password": "Confirmar senha",
+  "message-email-required": "E-mail obrigatório.",
+  "message-email-invalid-format": "Formato de e-mail inválido.",
+  "message-password-required": "Senha obrigatória.",
+  "message-confirm-password-required": "Confirmação de senha obrigatória.",
+  "message-password-not-match": "As senhas não coincidem.",
+  "invalid-credentials": "Credenciais inválidas.",
+  "user-creation-success": "Usuário criado com sucesso!!!"
 }

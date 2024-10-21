@@ -12,3 +12,5 @@ export { default as TextField } from './textfield';
 export { default as Switch } from './switch';
 export { default as Tab } from './tab';
 export { default as Typography } from './typography';
+export { default as Snackbar } from './snackbar';
+export { default as Alert } from './alert';

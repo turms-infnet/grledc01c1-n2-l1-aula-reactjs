@@ -2,9 +2,8 @@ import { Navigate, Outlet } from "react-router-dom";
 import { Menu } from "../components";
 
 const Protected = () => {
-    const token = localStorage.getItem("token");
-
-    return token ? 
+    const session = localStorage.getItem("session");
+    return session ? 
         <>
             <Menu />
             <Outlet />
