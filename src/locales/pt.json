@@ -1,4 +1,7 @@
 {
   "welcome": "Seja Bem-vindo",
-  "login": "Entrar"
+  "login": "Entrar",
+  "sign-in": "Logar",
+  "email": "E-mail",
+  "password": "Senha"
 }

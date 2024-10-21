@@ -1,4 +1,7 @@
 {
   "welcome": "Bienvenido",
-  "login": "Iniciar sesión"
+  "login": "Iniciar sesión",
+  "sign-in": "Ingressar",
+  "email": "E-mail",
+  "password": "Clave"
 }

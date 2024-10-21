@@ -1,4 +1,7 @@
 {
   "welcome": "Welcome",
-  "login": "Login"
+  "login": "Login",
+  "sign-in": "Sign In",
+  "email": "E-mail",
+  "password": "Password"
 }
