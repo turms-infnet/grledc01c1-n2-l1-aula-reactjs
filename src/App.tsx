@@ -1,10 +1,7 @@
-import { NativeBaseProvider } from "native-base";
-
+import Routes from "./routes";
 
 const App = () => {
-  return  <NativeBaseProvider>
-            <button>Olá</button>
-          </NativeBaseProvider>;
+  return <Routes/>;
 }
 
 export default App;
