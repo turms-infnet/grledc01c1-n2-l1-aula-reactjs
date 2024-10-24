@@ -1,10 +1,7 @@
-import { NativeBaseProvider } from "native-base";
-
+import { Button } from "./components";
 
 const App = () => {
-  return  <NativeBaseProvider>
-            <button>Olá</button>
-          </NativeBaseProvider>;
+  return <Button>Olá</Button>;
 }
 
 export default App;
