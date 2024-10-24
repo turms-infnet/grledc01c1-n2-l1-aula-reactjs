@@ -1,4 +1,4 @@
-const SignIn = () => {
+const SignIn: React.FC = () => {
     return 'SignIn'
 };
 

@@ -1,4 +1,4 @@
-const Settings = () => {
+const Settings: React.FC = () => {
     return 'Settings'
 };
 
