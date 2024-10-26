@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
     "@mui/material": "^6.1.5",
     "@mui/styled-engine-sc": "^6.1.5",
     "@testing-library/jest-dom": "^5.17.0",
