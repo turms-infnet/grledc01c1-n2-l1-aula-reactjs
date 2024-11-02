@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.app-background{
+  background-color: #f7f7f7;
+}
+
+.general-textfield > div, .general-button{
+  border-radius: 30px !important;
+}
