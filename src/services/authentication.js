@@ -20,8 +20,15 @@ const signIn = async (email, password, supabase) => {
     });
 }
 
+const signUp = async (email, password, supabase) => {
+    return await supabase.auth.signUp({
+        email, password
+    });
+}
+
 export {
     isAuthenticated,
     handleVerificationProtected,
-    signIn
+    signIn,
+    signUp
 }
