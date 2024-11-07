@@ -2,15 +2,13 @@ import { Button, DatePicker, DateTimePicker } from "../components";
 import { useAppContext } from "../Context";
 
 const SignIn: React.FC = () => {
-    const { showSnackMessage, showAlertMessage } = useAppContext();
-
+    const { showSnackMessage, showAlertMessage, translate, changeLanguage } = useAppContext();
 
     return  <>
-                <Button onClick={() => showSnackMessage("Mensagem customizada")}>Clique snack</Button>
-                <Button onClick={() => showAlertMessage("Mensagem customizada", "success", "filled")}>Clique alert success</Button>
-                <Button onClick={() => showAlertMessage("Mensagem customizada", "warning", "outlined")}>Clique alert warning</Button>
-                <Button onClick={() => showAlertMessage("Mensagem customizada", "error")}>Clique alert error</Button>
-                <Button onClick={() => showAlertMessage("Mensagem customizada", "info")}>Clique alert info</Button>
+                <Button onClick={() => showSnackMessage("Mensagem customizada")}>{translate("welcome")}</Button>
+                <Button onClick={() => changeLanguage("es")}>ES</Button>
+                <Button onClick={() => changeLanguage("en")}>EN</Button>
+                <Button onClick={() => changeLanguage("pt")}>PT</Button>
 
                 <DateTimePicker 
                     ampm={false}
