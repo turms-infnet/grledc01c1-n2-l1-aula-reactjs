@@ -1,9 +1,11 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { Alert, Grid, Snackbar } from './components';
+import { useTranslation } from 'react-i18next';
 
 const AppContext = createContext(null);
 
 const AppProvider = ({ children }) => {
+    const { t: translate, i18n } = useTranslation();
     const timeoutDuration = 6000;
     
     const [snackOpen, setSnackOpen] = useState(false);
@@ -13,9 +15,10 @@ const AppProvider = ({ children }) => {
     const [alertSeverity, setAlertSeverity] = useState("");
     const [alertVariant, setAlertVariant] = useState(null);
 
-
-    const changeLanguage = () => {
-        console.log('oi');
+    
+    const changeLanguage = (lang) => {
+        i18n.changeLanguage(lang);
+        localStorage.setItem("language", lang);
     }
 
     const showSnackMessage = (message) => {
@@ -41,8 +44,20 @@ const AppProvider = ({ children }) => {
     const sharedState = {
         changeLanguage,
         showSnackMessage,
-        showAlertMessage
+        showAlertMessage,
+        translate
     };
+
+    useEffect(() => {
+        const storeLanguage = localStorage.getItem("language");
+
+        if (storeLanguage) {
+            changeLanguage(storeLanguage);
+        } else {
+            const navLang = navigator.language.split("-")[0];
+            changeLanguage(navLang);
+        }
+    }, [])
 
     return (
         <AppContext.Provider value={sharedState}>
