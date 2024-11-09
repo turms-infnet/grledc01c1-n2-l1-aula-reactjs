@@ -1,8 +1,11 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { Alert, Grid, Snackbar } from './components';
 import { useTranslation } from 'react-i18next';
+import { createClient } from '@supabase/supabase-js';
 
 const AppContext = createContext(null);
+
+const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY)
 
 const AppProvider = ({ children }) => {
     const { t: translate, i18n } = useTranslation();
@@ -45,7 +48,8 @@ const AppProvider = ({ children }) => {
         changeLanguage,
         showSnackMessage,
         showAlertMessage,
-        translate
+        translate,
+        supabase
     };
 
     useEffect(() => {
@@ -60,30 +64,32 @@ const AppProvider = ({ children }) => {
     }, [])
 
     return (
-        <AppContext.Provider value={sharedState}>
-        {children}
-        <Snackbar
-            autoHideDuration={timeoutDuration}
-            onClose={handleClose}
-            open={snackOpen}
-            message={snackMessage}
-        />
-        { alertMessage 
-        ?   <Grid container={true}
-                sx={{
-                    position: 'absolute',
-                    left: 0,
-                    bottom: 0,
-                    width: '100%',
-                    padding: 2
-                }}
-            >
-                <Grid item={true} size={{ xs: 12 }}>
-                    <Alert variant={alertVariant} severity={alertSeverity}>{alertMessage}</Alert>
+        <div className="app-background">
+            <AppContext.Provider value={sharedState}>
+            {children}
+            <Snackbar
+                autoHideDuration={timeoutDuration}
+                onClose={handleClose}
+                open={snackOpen}
+                message={snackMessage}
+            />
+            { alertMessage 
+            ?   <Grid container={true}
+                    sx={{
+                        position: 'absolute',
+                        left: 0,
+                        bottom: 0,
+                        width: '100%',
+                        padding: 2
+                    }}
+                >
+                    <Grid item={true} size={{ xs: 12 }}>
+                        <Alert variant={alertVariant} severity={alertSeverity}>{alertMessage}</Alert>
+                    </Grid>
                 </Grid>
-            </Grid>
-        : null}
-        </AppContext.Provider>
+            : null}
+            </AppContext.Provider>
+        </div>
     );
 };
 
