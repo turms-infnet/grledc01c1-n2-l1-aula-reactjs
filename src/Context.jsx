@@ -48,12 +48,8 @@ const AppProvider = ({ children }) => {
         changeLanguage,
         showSnackMessage,
         showAlertMessage,
-<<<<<<< HEAD
         translate,
         supabase
-=======
-        translate
->>>>>>> d9e1808 (chore: Tradução finalizada (#5))
     };
 
     useEffect(() => {
