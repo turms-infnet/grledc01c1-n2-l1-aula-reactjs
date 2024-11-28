@@ -1,120 +1,163 @@
 import { IconButton } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { Grid, Avatar, Box, Typography, CardNewItem } from "../components";
+import { Grid, Avatar, Box, Typography, CardNewItem, CustomList } from "../components";
+import babyImage from '../assets/img/baby.png';
 
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-import baby from '../assets/img/baby.png';
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ACTIONS } from "../constants/actions";
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
     const theme = useTheme();
+    const [data, setData] = useState([]);
+
+    const loadData = () => {
+        const d = JSON.parse(localStorage.getItem("items"));
+        if(d) {
+            setData(d);
+        }
+    }
+
+    useEffect(() => {
+        loadData();
+    }, [])
 
     return  <Grid container={true}>
-                <Grid item={true} size={{xs: 12}}>
-                    <Grid container={true} sx={{
-                        marginTop: '1em'
-                    }}>
-                        <Grid 
-                            item={true} 
-                            size={{xs: 4}}
-                            sx={{
-                                ...styles.centerBox
-                            }}>
-                            <IconButton
-                                onClick={() => navigate('/dashboard')}
+                <Grid size={{ xs: 12 }}
+                    sx={{
+                        height: '25vh'
+                    }}
+                >
+                    <Grid container={true}
+                        sx={{
+                            alignItems: 'flex-end',
+                            marginTop: '1em'
+                        }}
+                    >
+                        <Grid size={{ xs: 4 }}>
+                            <Box
                                 sx={{
-                                    ...styles.iconButton,
-                                    border: `2px solid ${theme.palette.primary.main}`
+                                    ...styles.centerBox,
+                                    ...styles.centerBox
                                 }}
                             >
-                                <SignalCellularAltIcon 
+                                <IconButton
                                     sx={{
-                                    ...styles.icon,
-                                        color: `${theme.palette.primary.main}`,
+                                        ...styles.iconButton,
+                                        border: `2px solid ${theme.palette.primary.main}`
                                     }}
-                                />
-                            </IconButton>
-                            <Box sx={styles.boxText}>
-                                <Typography sx={{
-                                    ...styles.centerText,
-                                    ...styles.text2
-                                }}>52 cm</Typography>
-                                <Typography sx={{
-                                    ...styles.centerText,
-                                    ...styles.text3
-                                }}>Comprimento</Typography>
+                                    onClick={() => navigate("/dashboard")}
+                                >
+                                    <SignalCellularAltIcon
+                                        sx={{
+                                        ...styles.icon,
+                                        color: `${theme.palette.primary.main}`,
+                                    }} />
+                                </IconButton>
+                                <Box sx={{
+                                    ...styles.centerBox,
+                                    ...styles.boxText
+                                }}>
+                                    <Typography component="p" sx={{...styles.text2}}>54 cm</Typography>
+                                    <Typography component="p" sx={{...styles.text3}}>Comprimento</Typography>
+                                </Box>
                             </Box>
                         </Grid>
-                        <Grid 
-                            item={true} 
-                            size={{xs: 4}}
-                            sx={{
-                                ...styles.centerBox
-                            }}>
-                            <Avatar 
-                                src={baby}
+                        <Grid size={{ xs: 4 }}>
+                            <Box
                                 sx={{
-                                    width: 90,
-                                    height: 90
-                                }}
-                            />
-                            <Box sx={styles.boxText}>
-                                <Typography sx={{
-                                    ...styles.centerText,
-                                    ...styles.text1
-                                }}>Benício</Typography>
-                                <Typography sx={{
-                                    ...styles.centerText,
-                                    ...styles.text3
-                                }}>X dia(s)</Typography>
-                            </Box>
-                        </Grid>
-                        <Grid 
-                            item={true} 
-                            size={{xs: 4}}
-                            sx={{
-                                ...styles.centerBox
-                            }}>
-                            <IconButton
-                                onClick={() => navigate('/settings')}
-                                sx={{
-                                    ...styles.iconButton,
-                                    border: `2px solid ${theme.palette.primary.main}`
+                                    ...styles.centerBox
                                 }}
                             >
-                                <SettingsIcon 
+                                <Avatar
+                                    sx={{ width: 90, height: 90 }}
+                                    src={babyImage}
+                                />
+                                <Box sx={{
+                                    ...styles.centerBox,
+                                    ...styles.boxText
+                                }}>
+                                    <Typography component="p" sx={{...styles.text1}}>Benício</Typography>
+                                    <Typography component="p" sx={{...styles.text3}}>x Dias</Typography>
+                                </Box>
+                            </Box>
+                        </Grid>
+                        <Grid size={{ xs: 4 }}>
+                            <Box
+                                sx={{
+                                    ...styles.centerBox
+                                }}
+                            >
+                                <IconButton
                                     sx={{
-                                    ...styles.icon,
+                                        ...styles.iconButton,
+                                        border: `2px solid ${theme.palette.primary.main}`
+                                    }}
+                                    onClick={() => navigate("/settings")}
+                                >
+                                    <SettingsIcon
+                                        sx={{
+                                        ...styles.icon,
                                         color: `${theme.palette.primary.main}`,
                                     }}
-                                />
-                            </IconButton>
-                            <Box sx={styles.boxText}>
-                                <Typography sx={{
-                                    ...styles.centerText,
-                                    ...styles.text2
-                                }}>3,80kg</Typography>
-                                <Typography sx={{
-                                    ...styles.centerText,
-                                    ...styles.text3
-                                }}>Peso</Typography>
+                                    />
+                                </IconButton>
+                                <Box sx={{
+                                    ...styles.centerBox,
+                                    ...styles.boxText
+                                }}>
+                                    <Typography component="p" sx={{...styles.text2}}>4.200 kg</Typography>
+                                    <Typography component="p" sx={{...styles.text3}}>Peso</Typography>
+                                </Box>
                             </Box>
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item={true} size={{xs: 12}}>
-                    <Grid container={true}>
-                        {
-                            ACTIONS.map((action, idx) => {
-                                return <Grid item={true} size={{xs: 4}}>
-                                    <CardNewItem {...action}/>
+                <Grid 
+                    item={true}
+                    size={{ xs: 12 }}
+                    sx={{
+                        backgroundColor: theme.palette.primary.main,
+                        height: '75vh'
+                    }}
+                >
+                    <Grid container={true}
+                        sx={{
+                            marginTop: '-50px',
+                            padding: 2
+                        }}
+                    >
+                        <Grid size={{ xs: 12 }} item={true}>
+                            <Grid container={true} spacing={2}>
+                                {
+                                    ACTIONS.map(action => <Grid size={{ xs: 4 }}>
+                                        <CardNewItem
+                                            title={action.title}
+                                            Icon={action.Icon}
+                                            color={action.color}
+                                            actionType={action.actionType}
+                                        />
+                                    </Grid>)
+                                }
+                            </Grid>
+                            <Grid container={true} sx={{
+                                marginTop: '1em'
+                            }}>
+                                <Grid size={{ xs: 12 }}>
+                                    { data ? <CustomList
+                                        sx={{
+                                            overflow: 'auto',
+                                            maxHeight: '56.5vh'
+                                        }}
+                                        items={data}
+                                    /> : null}
                                 </Grid>
-                            })
-                        }
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
@@ -124,7 +167,7 @@ const styles = {
     centerBox: {
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
         alignItems: 'center'
     },
     iconButton: {
@@ -133,9 +176,6 @@ const styles = {
     },
     icon: {
         fontSize: '1.5em'
-    },
-    centerText: {
-        textAlign: 'center'
     },
     boxText: {
         marginTop: '.5em'
@@ -158,6 +198,5 @@ const styles = {
         fontWeight: '400',
     }
 }
-
 
 export default Home;
