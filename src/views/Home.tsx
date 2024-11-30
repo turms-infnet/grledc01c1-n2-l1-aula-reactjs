@@ -9,6 +9,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ACTIONS } from "../constants/actions";
+import { list } from "../services/database";
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Home: React.FC = () => {
     const [data, setData] = useState([]);
 
     const loadData = () => {
-        const d = JSON.parse(localStorage.getItem("items"));
+        const d = list();
         if(d) {
             setData(d);
         }

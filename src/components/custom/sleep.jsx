@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { DateTimePicker, Grid, TextField } from "..";
 import { handleInputChange } from "../../utils/action";
 import { adjustDateTimeForTimezone } from "../../utils/core";
@@ -33,12 +33,11 @@ const Sleep = ({ data, setData, translate }) => {
               </Grid>
               <Grid item={true} size={{ xs: 12 }}>
                 <TextField
-                  value={data?.observation}
+                  value={data?.observation ? data.observation : ""}
                   label={translate("observation")}
                   onChange={(event) => {handleInputChange('observation', event.target.value, data, setData)}}
                   name="observation"
                   rows={6}
-                  format="DD/MM/YYYY HH:mm"
                   fullWidth={true}
                   multiline={true}/>
               </Grid>

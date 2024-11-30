@@ -1,4 +1,5 @@
 export { default as Avatar } from './avatar';
+export { default as AppBar } from './custom/appBar';
 export { default as Button } from './button';
 export { default as Box } from './box';
 export { default as Container } from './container';
