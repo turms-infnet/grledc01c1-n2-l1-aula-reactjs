@@ -9,7 +9,9 @@ const DatePickerComponent = ({ ...props }) => {
                 localeText={ptBR.components.MuiLocalizationProvider.defaultProps.localeText}
                 dateAdapter={AdapterDayjs}>
                 <DemoContainer components={['DatePicker']}>
-                    <DatePicker {...props} />
+                    <DatePicker 
+                        {...props}
+                        className={`general-textfield ${props.className ? props.className : ""}`} />
                 </DemoContainer>
             </LocalizationProvider>
 }

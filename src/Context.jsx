@@ -4,6 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { createClient } from '@supabase/supabase-js';
 import { ThemeProvider, useMediaQuery } from '@mui/material';
 import { darkTheme, lightTheme } from './theme';
+import dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration';
+import utc from 'dayjs/plugin/utc';
+
+dayjs.extend(duration);
+dayjs.extend(utc);
 
 const AppContext = createContext(null);
 
@@ -21,7 +27,6 @@ const AppProvider = ({ children }) => {
     const [alertSeverity, setAlertSeverity] = useState("");
     const [alertVariant, setAlertVariant] = useState(null);
 
-    
     const changeLanguage = (lang) => {
         i18n.changeLanguage(lang);
         localStorage.setItem("language", lang);

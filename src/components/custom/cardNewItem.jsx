@@ -1,9 +1,11 @@
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from "react-router-dom";
 import { Card, Fab, Grid, Typography } from '..';
+import { useAppContext } from '../../Context';
 
 const CardNewItemComponent = ({Icon, color, title, actionType}) => {
     const navigate = useNavigate();
+    const { translate } = useAppContext();
 
     return <Card sx={{
         overflow: 'visible',
@@ -22,7 +24,7 @@ const CardNewItemComponent = ({Icon, color, title, actionType}) => {
                         }}/>
                     <Typography
                         sx={{
-                            fontSize: '.85em',
+                            fontSize: '.80em',
                             marginTop: '0.5em',
                             fontWeight: '700',
                             textAlign: 'center',
@@ -43,7 +45,7 @@ const CardNewItemComponent = ({Icon, color, title, actionType}) => {
                             fontWeight: '400',
                             color: "#8f8f8f"
                         }}
-                    >Adicione algo</Typography>
+                    >{translate('add_something')}</Typography>
                 </Grid>
                 <Grid sx={{
                     display: 'flex',
