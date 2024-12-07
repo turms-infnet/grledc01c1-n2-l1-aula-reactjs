@@ -1,6 +1,7 @@
 {
   "welcome": "Welcome",
   "login": "Login",
+  "logout": "Logout",
   "register": "Create account",
   "sign-in": "Sign In",
   "sign-up": "Sign Up",
@@ -54,5 +55,8 @@
   "min": "Min.",
   "from": "From",
   "to": "To",
-  "days": "Day(s)"
+  "days": "Day(s)",
+  "height": "Height",
+  "app_language": "App language",
+  "add_something": "Add something"
 }

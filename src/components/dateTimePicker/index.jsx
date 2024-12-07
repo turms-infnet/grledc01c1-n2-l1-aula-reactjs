@@ -10,7 +10,9 @@ const DateTimePickerComponent = ({ ...props }) => {
                 dateAdapter={AdapterDayjs}
             >
                 <DemoContainer components={['DateTimePicker']}>
-                    <DateTimePicker {...props} />
+                    <DateTimePicker 
+                        {...props}
+                        className={`general-textfield ${props.className ? props.className : ""}`} />
                 </DemoContainer>
             </LocalizationProvider>
 }

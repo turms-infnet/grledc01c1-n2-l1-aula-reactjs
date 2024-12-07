@@ -1,6 +1,7 @@
 {
   "welcome": "Seja Bem-vindo",
   "login": "Entrar",
+  "logout": "Sair",
   "register": "Criar conta",
   "sign-in": "Logar",
   "sign-up": "Registrar-se",
@@ -54,5 +55,8 @@
   "min": "Min.",
   "from": "De",
   "to": "Até",
-  "days": "Dia(s)"
+  "days": "Dia(s)",
+  "height": "Comprimento",
+  "app_language": "Idioma da aplicação",
+  "add_something": "Adicione algo"
 }

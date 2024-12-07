@@ -9,15 +9,23 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ACTIONS } from "../constants/actions";
-import { list } from "../services/database";
+import { get, list } from "../services/supabasedb";
+import { calculateDuration, getUser } from "../utils/core";
+import { useAppContext } from "../Context";
 
 const Home: React.FC = () => {
+    const { translate } = useAppContext();
     const navigate = useNavigate();
     const theme = useTheme();
+    const user = getUser();
     const [data, setData] = useState([]);
+    const [profile, setProfile] = useState({});
 
-    const loadData = () => {
-        const d = list();
+    const loadData = async () => {
+        const d = await list("action_students");
+        const profile = await get("profile_students", [{field: "user_id", value: user.id }]);
+        setProfile(profile);
+
         if(d) {
             setData(d);
         }
@@ -63,8 +71,8 @@ const Home: React.FC = () => {
                                     ...styles.centerBox,
                                     ...styles.boxText
                                 }}>
-                                    <Typography component="p" sx={{...styles.text2}}>54 cm</Typography>
-                                    <Typography component="p" sx={{...styles.text3}}>Comprimento</Typography>
+                                    <Typography component="p" sx={{...styles.text2}}>{profile?.height} {translate("cm")}</Typography>
+                                    <Typography component="p" sx={{...styles.text3}}>{translate("height")}</Typography>
                                 </Box>
                             </Box>
                         </Grid>
@@ -82,8 +90,8 @@ const Home: React.FC = () => {
                                     ...styles.centerBox,
                                     ...styles.boxText
                                 }}>
-                                    <Typography component="p" sx={{...styles.text1}}>Benício</Typography>
-                                    <Typography component="p" sx={{...styles.text3}}>x Dias</Typography>
+                                    <Typography component="p" sx={{...styles.text1}}>{profile?.name}</Typography>
+                                    <Typography component="p" sx={{...styles.text3}}>{profile?.birth ? calculateDuration(profile?.birth, "days") : 0} {translate("days")}</Typography>
                                 </Box>
                             </Box>
                         </Grid>
@@ -111,8 +119,8 @@ const Home: React.FC = () => {
                                     ...styles.centerBox,
                                     ...styles.boxText
                                 }}>
-                                    <Typography component="p" sx={{...styles.text2}}>4.200 kg</Typography>
-                                    <Typography component="p" sx={{...styles.text3}}>Peso</Typography>
+                                    <Typography component="p" sx={{...styles.text2}}>{profile?.weight} {translate("kg")}</Typography>
+                                    <Typography component="p" sx={{...styles.text3}}>{translate("weight")}</Typography>
                                 </Box>
                             </Box>
                         </Grid>
@@ -137,7 +145,7 @@ const Home: React.FC = () => {
                                 {
                                     ACTIONS.map(action => <Grid size={{ xs: 4 }}>
                                         <CardNewItem
-                                            title={action.title}
+                                            title={translate(action.title)}
                                             Icon={action.Icon}
                                             color={action.color}
                                             actionType={action.actionType}

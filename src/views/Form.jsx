@@ -2,8 +2,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAppContext } from "../Context";
 import { Button, Diaper, Eat, Sleep, Grid, AppBar } from "../components";
 import { useEffect, useState } from "react";
-import { drop, get, save, update } from "../services/database";
+import { drop, get, save, update } from "../services/supabasedb";
 import { getTitle, validateFields } from "../utils/action";
+import { getUser } from "../utils/core";
 
 const Form = () => {
     const { translate, showAlertMessage } = useAppContext();
@@ -34,7 +35,8 @@ const Form = () => {
 
     const loadData = async (id) => {
         if(id) {
-            setData(get(id));
+            const result = await get("action_students", [{field: "id", value: id }, {field: "user_id", value: getUser().id }]);
+            setData(result);
         }
     }
 
@@ -69,14 +71,15 @@ const Form = () => {
                             type="submit"
                             fullWidth
                             variant="contained"
-                            onClick={() => {
+                            onClick={async () => {
                                 try{
                                     const fields = validateFields(data, actionType);
                                     if (fields.length === 0) {
                                         if(id){
-                                            update(data, id);
+                                            await update("action_students", data, id);
                                         }else{
-                                            save(data);
+                                            data.user_id = getUser().id;
+                                            await save("action_students", data);
                                         }
                                         showAlertMessage(`Item ${id ? "editado" : "criado"} com sucesso!!!`, "success");
                                         setTimeout(() => {

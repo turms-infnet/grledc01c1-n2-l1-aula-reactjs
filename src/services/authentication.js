@@ -1,4 +1,4 @@
-import { redirect } from "react-router-dom";
+import { Navigate, redirect } from "react-router-dom";
 
 const isAuthenticated = () => {
     const session = localStorage.getItem("session");
@@ -26,9 +26,19 @@ const signUp = async (email, password, supabase) => {
     });
 }
 
+const signOut = async (supabase, navigate) => {
+    localStorage.removeItem("session");
+    localStorage.removeItem("user");
+
+    supabase.auth.signOut();
+
+    return navigate("/signin")
+}
+
 export {
     isAuthenticated,
     handleVerificationProtected,
     signIn,
-    signUp
+    signUp,
+    signOut
 }
