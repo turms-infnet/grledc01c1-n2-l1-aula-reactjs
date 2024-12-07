@@ -11,6 +11,15 @@ import utc from 'dayjs/plugin/utc';
 dayjs.extend(duration);
 dayjs.extend(utc);
 
+import duration from 'dayjs/plugin/duration';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+import dayjs from 'dayjs';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.extend(duration);
+
 const AppContext = createContext(null);
 
 const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY)

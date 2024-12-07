@@ -28,23 +28,3 @@ const handleChange = (data, setData, value, field) => {
     const d = data;
     d[field].value = value
     setData(() => ({
-        ...d
-    }));
-}
-
-const getUser = () => {
-    const session = JSON.parse(localStorage.getItem("session"));
-    if(session && Object.keys(session).length > 0) {
-        return session.user
-    }
-    return {}
-}
-
-
-
-export {
-    handleChange,
-    adjustDateTimeForTimezone,
-    getUser,
-    calculateDuration
-}
