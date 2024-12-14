@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAppContext } from "../Context";
 import { Button, Diaper, Eat, Sleep, Grid, AppBar } from "../components";
 import { useEffect, useState } from "react";
-import { drop, get, save, update } from "../services/supabasedb";
+import { drop, get, post, update } from "../services/api-axios";
 import { getTitle, validateFields } from "../utils/action";
 import { getUser } from "../utils/core";
 
@@ -35,8 +35,10 @@ const Form = () => {
 
     const loadData = async (id) => {
         if(id) {
-            const result = await get("action_students", [{field: "id", value: id }, {field: "user_id", value: getUser().id }]);
-            setData(result);
+            const result = await get("item", id);
+            if(result.status === 200){
+                setData(result.data);
+            }
         }
     }
 
@@ -76,10 +78,10 @@ const Form = () => {
                                     const fields = validateFields(data, actionType);
                                     if (fields.length === 0) {
                                         if(id){
-                                            await update("action_students", data, id);
+                                            await update("item", id, data);
                                         }else{
                                             data.user_id = getUser().id;
-                                            await save("action_students", data);
+                                            await post("item", data);
                                         }
                                         showAlertMessage(`Item ${id ? "editado" : "criado"} com sucesso!!!`, "success");
                                         setTimeout(() => {

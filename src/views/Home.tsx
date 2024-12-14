@@ -9,7 +9,8 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ACTIONS } from "../constants/actions";
-import { get, list } from "../services/supabasedb";
+import { get } from "../services/api-axios";
+import { get as _get } from "../services/supabasedb";
 import { calculateDuration, getUser } from "../utils/core";
 import { useAppContext } from "../Context";
 
@@ -22,12 +23,12 @@ const Home: React.FC = () => {
     const [profile, setProfile] = useState({});
 
     const loadData = async () => {
-        const d = await list("action_students");
-        const profile = await get("profile_students", [{field: "user_id", value: user.id }]);
+        const d = await get("item");
+        const profile = await _get("profile_students", [{field: "user_id", value: user.id }]);
         setProfile(profile);
 
-        if(d) {
-            setData(d);
+        if(d.status === 200) {
+            setData(d.data);
         }
     }
 
